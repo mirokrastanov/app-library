@@ -1,8 +1,6 @@
+import './App.css';
 import { useState } from 'react';
 import { Routes, Route, Navigate, useParams, useLocation } from 'react-router-dom';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
 import { useTheme } from './contexts/ThemeContext';
 import Navigation from './components/navigation/Navigation';
 import Home from './components/home/Home';
@@ -25,7 +23,7 @@ function App() {
                 <Routes>
                     <Route exact path='/' element={<Home />} />
                     <Route path='home' element={<Navigate to='/' />} />
-                    <Route path='index' element={<Navigate to='/' />} />
+                    <Route path='index.html' element={<Navigate to='/' />} />
                     
 
 
