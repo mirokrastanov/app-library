@@ -15,16 +15,16 @@ export function ThemeProvider({ children }) {
     const [darkTheme, setDarkTheme] = useState(false);
 
     useEffect(() => {
-        let savedMode = localStorage.getItem('m-app-lib-dark-theme');
+        let savedMode = localStorage.getItem('dark-theme');
         if (savedMode == 'true') setDarkTheme(true);
         else setDarkTheme(false);
     }, []);
 
     useEffect(() => {
         if (darkTheme) {
-            localStorage.setItem('m-app-lib-dark-theme', 'true');
+            localStorage.setItem('dark-theme', 'true');
         } else {
-            localStorage.setItem('m-app-lib-dark-theme', 'false');
+            localStorage.setItem('dark-theme', 'false');
         }
     }, [darkTheme]);
 
