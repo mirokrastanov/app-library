@@ -2,18 +2,24 @@
     background: var(--background-2);
 }
 
+.h--title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-black);
+    padding: 10px 20px;
+}
+
 .h--section-top {
-    padding-top: 65px;
     height: 100vh;
     background: var(--background-1) no-repeat bottom center;
     background-size: cover;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding: 0 10vw;
+    padding: 65px 10vw 20px 10vw;
     color: var(--color-black);
     user-select: none;
-    padding-bottom: 20px;
     position: relative;
     min-height: 100vh;
     overflow: hidden;
