@@ -34,12 +34,11 @@
     --box-shadow-7-cards: rgba(0, 0, 0, 0.4) 0px 0px 3px 3px;
     --box-shadow-8: inset 1px -2px 20px rgba(51, 51, 51, 0.17), inset -3px 3px 3px rgba(0, 0, 0, 0.4);
 
-    --background-1: url('./assets/sw-wall-1.jpeg');
+    --background-1: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
     --background-2: linear-gradient(to right, #fffdf0, #e0fcff);
     --background-3-light: linear-gradient(to right, #141e303b, #243b553a);
-    --background-4: url('./assets/duelist.webp');
-    --background-5: url('./assets/breaking-bad.jpg');
-
+    --background-4: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    --background-5: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
 
     --transition-1: all 0.3s ease-in-out;
 }
@@ -59,7 +58,6 @@
     --color-only-dark: black;
     --color-star: #f7f406;
 
-
     --text-shadow-1: 2px 2px black;
     --box-shadow-1: rgba(205, 205, 162, 0.25) 0px 50px 100px -20px,
         rgba(255, 255, 255, 0.3) 0px 30px 60px -30px,
@@ -73,14 +71,11 @@
     --box-shadow-7-cards: rgba(136, 165, 191, 0.48) 0px 0px 6px 0px, rgba(255, 255, 255, 0.8) 1px 1px 4px 0px;
     --box-shadow-8: inset 1px -2px 20px rgba(214, 214, 214, 0.17), inset -3px 3px 3px rgba(255, 255, 255, 0.4);
 
-
-    --background-1: url('./assets/avengers-wall-1.webp');
+    --background-1: linear-gradient(135deg, #267bb4 0%, #8187e9 100%);
     --background-2: linear-gradient(to right, #141e30, #243b55);
     --background-3-light: linear-gradient(to right, #fffdf03b, #e0fcff3b, #e0fcff3d, #fffdf03a);
-    --background-4: url('./assets/witcher-2.webp');
-    --background-5: url('./assets/forest-1.jpg');
-
-
+    --background-4: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+    --background-5: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
 }
 
 
