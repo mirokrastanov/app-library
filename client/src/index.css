@@ -71,7 +71,7 @@
     --box-shadow-7-cards: rgba(136, 165, 191, 0.48) 0px 0px 6px 0px, rgba(255, 255, 255, 0.8) 1px 1px 4px 0px;
     --box-shadow-8: inset 1px -2px 20px rgba(214, 214, 214, 0.17), inset -3px 3px 3px rgba(255, 255, 255, 0.4);
 
-    --background-1: linear-gradient(135deg, #267bb4 0%, #8187e9 100%);
+    --background-1: linear-gradient(135deg, #125886 0%, #4c54dd 100%);
     --background-2: linear-gradient(to right, #141e30, #243b55);
     --background-3-light: linear-gradient(to right, #fffdf03b, #e0fcff3b, #e0fcff3d, #fffdf03a);
     --background-4: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
