@@ -5,7 +5,7 @@ import { useTheme } from './contexts/ThemeContext';
 import Navigation from './components/navigation/Navigation';
 import Home from './components/home/Home';
 import NotFound from './components/notFound/NotFound';
-import RockPaperScissors from './components/apps/rps/RockPaperScissors';
+import AppDetails from './components/appDetails/AppDetails';
 
 function App() {
     const darkTheme = useTheme();
@@ -25,11 +25,8 @@ function App() {
                     <Route exact path='/' element={<Home />} />
                     <Route path='home' element={<Navigate to='/' />} />
                     <Route path='index.html' element={<Navigate to='/' />} />
+                    <Route path='details/:id' element={<AppDetails />} />
                     
-                    {/* APP DEDICATED PAGES */}
-                    <Route path='rps' element={<RockPaperScissors />} />
-                    
-
 
                     <Route path='*' element={<NotFound />} />
                 </Routes>

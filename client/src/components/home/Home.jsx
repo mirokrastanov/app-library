@@ -10,7 +10,7 @@ function Home() {
             <div className="cards-cage">
                 <AppCard />
 
-                <Link className='btn' to={'/rps'}>RPS TEST LINK</Link>
+                <Link className='btn' to={'/details/1'}>RPS TEST LINK</Link> 
             </div>
             <h1>Small Projects</h1>
             <div className="cards-cage">
