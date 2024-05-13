@@ -3,7 +3,7 @@ export const techImgUrls = {
     'CSS': 'https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/CSS.svg',
     'JavaScript': 'https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/JavaScript.svg',
     'lit-html': 'https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Lit-Dark.svg',
-    'Page.js': 'https://raw.githubusercontent.com/mirokrastanov/Software-Engineering-SoftUni/main/miscellaneous/page-js-1.png',
+    'Page.js': 'https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/code_javascript.png',
     'Axios': 'https://avatars.githubusercontent.com/u/32372333?v=4',
     'Angular': 'https://raw.githubusercontent.com/devicons/devicon/6910f0503efdd315c8f9b858234310c06e04d9c0/icons/angularjs/angularjs-original.svg',
     'TypeScript': 'https://raw.githubusercontent.com/devicons/devicon/6910f0503efdd315c8f9b858234310c06e04d9c0/icons/typescript/typescript-original.svg',
@@ -31,7 +31,7 @@ export const appData = [
     {
         id: 2,
         appName: 'Guess The Number',
-        appPoster: 'https://raw.githubusercontent.com/mirokrastanov/Software-Engineering-SoftUni/main/miscellaneous/guess-the-number.jfif',
+        appPoster: 'https://raw.githubusercontent.com/mirokrastanov/Software-Engineering-SoftUni/main/miscellaneous/numbers-card-poster.jpg',
         appType: 'Web Game',
         techArr: ['HTML', 'CSS', 'JavaScript'],
         appInfo: '❓ A simple web-based JavaScript Number Guessing Game.',
@@ -97,7 +97,7 @@ export const appData = [
         appName: 'Weather & Air Quality',
         appPoster: 'https://raw.githubusercontent.com/mirokrastanov/Responsive-Weather-Application/main/src/images/github-doc/w-sidebar.png',
         appType: 'Front End SPA',
-        techArr: ['HTML', 'CSS', 'JavaScript', 'lit-html', 'Page.js', 'Axios'],
+        techArr: ['HTML', 'CSS', 'JavaScript', 'lit-html', 'Axios', 'Page.js'],
         appInfo: '☀️ 🌤️ 🌧️ 🌨️ 🌡️ Web application with modern responsive design showing information about the weather, air quality & more.',
     },
     {
@@ -105,7 +105,7 @@ export const appData = [
         appName: 'NBA Dashboard',
         appPoster: 'https://raw.githubusercontent.com/mirokrastanov/Software-Engineering-SoftUni/main/miscellaneous/nba-dashboard-project/1.png',
         appType: 'Full Stack Web App',
-        techArr: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase', 'Puppeteer'],
+        techArr: ['Angular', 'TypeScript', 'Firebase', 'Puppeteer', 'CSS', 'HTML'],
         appInfo: '🏀📆💻▶️ A Fully Responsive Full Stack Web Application offering a modern dashboard with NBA stats, team rosters, standings, news, analysis, transactions, player stats and more.',
     },
     {
@@ -113,7 +113,7 @@ export const appData = [
         appName: 'TV Kingdom',
         appPoster: 'https://raw.githubusercontent.com/mirokrastanov/Software-Engineering-SoftUni/main/miscellaneous/tv-kingdom-assets/preview.png',
         appType: 'Full Stack Web App',
-        techArr: ['React', 'JavaScript', 'HTML', 'CSS', 'Firebase', 'Appwrite', 'Swipper.js'],
+        techArr: ['React', 'JavaScript', 'Firebase', 'Appwrite', 'Swipper.js', 'HTML', 'CSS'],
         appInfo: '🎬📺🏰🎉TV Kingdom, where the magic of television meets the future: a modern, fully responsive, full-stack web application that unlocks a kingdom of limitless TV show data at your fingertips!',
     },
     {
@@ -121,7 +121,7 @@ export const appData = [
         appName: 'Real-time Chat App',
         appPoster: 'https://raw.githubusercontent.com/mirokrastanov/Software-Engineering-SoftUni/main/miscellaneous/js-websocket-chat/2.png',
         appType: 'Full Stack Web App',
-        techArr: ['React', 'JavaScript', 'HTML', 'CSS', 'Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'Tailwind'],
+        techArr: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind', 'Mongoose', 'JavaScript', 'HTML', 'CSS'],
         appInfo: '💬📱💻Socket.io-powered chat app enabling real-time messaging across multiple chat rooms, with live event updates and user presence.',
     }
 ];
