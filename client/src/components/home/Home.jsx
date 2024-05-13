@@ -6,13 +6,17 @@ import AppCard from '../appCard/AppCard';
 function Home() {
     return (
         <div className='home-ctr'>
-            <section className='h--section-top'>
-                <h1 className='h--title'>Apps & Games</h1>
-                <div className="h--content">
-                    <AppCard />
-                    {/* <Link className='btn' to={'/shows'}>Shows</Link> */}
-                </div>
-            </section>
+            <h1 id='top'>Large Projects</h1>
+            <div className="cards-cage">
+                <AppCard />
+
+                <Link className='btn' to={'/rps'}>RPS TEST LINK</Link>
+            </div>
+            <h1>Small Projects</h1>
+            <div className="cards-cage">
+                <AppCard />
+
+            </div>
         </div>
     )
 }
