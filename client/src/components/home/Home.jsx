@@ -13,7 +13,7 @@ function Home() {
                 <AppCard id={12} />
                 <AppCard id={13} />
             </div>
-            <h1>Small Projects</h1>
+            <h1>Smaller Projects</h1>
             <div className="cards-cage">
                 <AppCard id={1} />
                 <AppCard id={2} />
