@@ -191,6 +191,19 @@ a {
     box-shadow: var(--box-shadow-4);
 }
 
+.btn-home {
+    background: darkcyan;
+}
+
+.btn-demo {
+    background: blueviolet;
+}
+
+.btn-demo:hover {
+    background: purple;
+    color: var(--color-white);
+}
+
 
 /* Scrollbar styles */
 ::-webkit-scrollbar {
