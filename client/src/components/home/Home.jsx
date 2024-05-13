@@ -8,14 +8,22 @@ function Home() {
         <div className='home-ctr'>
             <h1 id='top'>Large Projects</h1>
             <div className="cards-cage">
-                <AppCard />
-
-                <Link className='btn' to={'/details/1'}>RPS TEST LINK</Link> 
+                <AppCard id={10} />
+                <AppCard id={11} />
+                <AppCard id={12} />
+                <AppCard id={13} />
             </div>
             <h1>Small Projects</h1>
             <div className="cards-cage">
-                <AppCard />
-
+                <AppCard id={1} />
+                <AppCard id={2} />
+                <AppCard id={3} />
+                <AppCard id={4} />
+                <AppCard id={5} />
+                <AppCard id={6} />
+                <AppCard id={7} />
+                <AppCard id={8} />
+                <AppCard id={9} />
             </div>
         </div>
     )
