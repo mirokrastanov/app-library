@@ -43,6 +43,9 @@
 
 .card .poster img {
     width: 100%;
+    height: 350px;
+    object-fit: cover;
+    overflow: hidden;
     transition: 0.5s;
 }
 
@@ -136,7 +139,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    bottom: 5px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -156,6 +159,8 @@
 
 .info {
     margin: 10px 0;
+    height: 110px;
+    padding: 15px 0;
 }
 
 .info p {

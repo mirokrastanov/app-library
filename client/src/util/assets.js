@@ -19,7 +19,7 @@ const appPosters = {
 };
 
 const appDesc = {
-    'rps': 'Implementation of the popular "Rock - Paper - Scissors" game.',
+    'rps': 'A Web implementation of the popular "Rock - Paper - Scissors" game.',
 
 
 };
