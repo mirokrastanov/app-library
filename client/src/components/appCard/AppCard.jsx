@@ -2,7 +2,7 @@ import React from 'react';
 import './AppCard.css';
 import TechImg from '../shared/techImg/TechImg';
 
-function AppCard({ appImg, appName, appType, techArr, appInfo }) {
+function AppCard({ appName, appPoster, appType, techArr, appInfo }) {
     return (
         <div className="card">
             <div className="poster">

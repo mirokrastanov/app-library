@@ -1,9 +1,9 @@
 import React from 'react';
-import { techImgUrl } from '../../../util/assets';
+import { techImgUrls } from '../../../util/assets';
 
 function TechImg({ techName }) {
     return (
-        <img src={techImgUrl[techName]} alt={techName} height='40px' title={techName} />
+        <img src={techImgUrls[techName]} alt={techName} height='40px' title={techName} />
     )
 }
 
