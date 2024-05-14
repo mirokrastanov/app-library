@@ -148,6 +148,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    cursor: pointer;
 }
 
 .modal-content img {
@@ -155,6 +157,40 @@
     width: auto;
     object-fit: contain;
     border-radius: 15px;
+}
+
+.open-in-new {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: red;
+    background: var(--color-bg-light);
+    box-shadow: var(--box-shadow-7-cards);
+    padding: 7px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 30px;
+
+}
+
+.open-in-new:hover {
+    transform: scale(1.1);
+    color: teal;
+    border: 3px solid teal;
+    box-shadow: none;
+    top: 7px;
+    right: 7px;
+    cursor: pointer;
+}
+
+.modal-content .tooltip-anchor {
+    position: unset;
+}
+
+.modal-content .tooltip-anchor .tooltip {
+    top: -10px;
+    left: unset;
+    right: 70px;
 }
 
 .modal-content h3 {
