@@ -27,6 +27,8 @@ export const appData = [
         appType: 'Web Game',
         techArr: ['HTML', 'CSS', 'JavaScript'],
         appInfo: '📄✂️ A Web implementation of the popular "Rock - Paper - Scissors" game.',
+        demoURL: false,
+        imgArr: [],
     },
     {
         id: 2,
@@ -35,6 +37,8 @@ export const appData = [
         appType: 'Web Game',
         techArr: ['HTML', 'CSS', 'JavaScript'],
         appInfo: '❓ A simple web-based JavaScript Number Guessing Game.',
+        demoURL: false,
+        imgArr: [],
     },
     {
         id: 3,
@@ -43,6 +47,8 @@ export const appData = [
         appType: 'Web Game',
         techArr: ['HTML', 'CSS', 'JavaScript'],
         appInfo: '🦖 Web-based JavaScript implementation of the popular Chrome Dinosaur Game.',
+        demoURL: false,
+        imgArr: [],
     },
     {
         id: 4,
@@ -51,6 +57,8 @@ export const appData = [
         appType: 'Web Game',
         techArr: ['HTML', 'CSS', 'JavaScript'],
         appInfo: '🎮🐍🍎Web-based JavaScript implementation of the popular game - Snake.',
+        demoURL: false,
+        imgArr: [],
     },
     {
         id: 5,
@@ -59,6 +67,8 @@ export const appData = [
         appType: 'Web Game',
         techArr: ['HTML', 'CSS', 'JavaScript'],
         appInfo: '🎮⚾🌠▶ Web-based JavaScript implementation of the popular game - Breakout / Arkanoid.',
+        demoURL: false,
+        imgArr: [],
     },
     {
         id: 6,
@@ -67,6 +77,8 @@ export const appData = [
         appType: 'Web App',
         techArr: ['HTML', 'CSS', 'JavaScript'],
         appInfo: '🖥️📈 Feature-rich, web-based, JavaScript implementation of a scientific calculator with Light and Dark modes, usable History and number Conversions between different Numeral Systems.',
+        demoURL: false,
+        imgArr: [],
     },
     {
         id: 7,
@@ -75,6 +87,8 @@ export const appData = [
         appType: 'Web Game',
         techArr: ['HTML', 'CSS', 'JavaScript'],
         appInfo: '📱🪄🎮🕹️ Web-based side-scrolling game - SoftUni Wizard. Created with JavaScript.',
+        demoURL: false,
+        imgArr: [],
     },
     {
         id: 8,
@@ -83,6 +97,8 @@ export const appData = [
         appType: 'Web Game',
         techArr: ['HTML', 'CSS', 'JavaScript'],
         appInfo: '♠️♥️♣️♦️ Web-based JavaScript implementation of the popular game - Solitaire.',
+        demoURL: false,
+        imgArr: [],
     },
     {
         id: 9,
@@ -91,6 +107,8 @@ export const appData = [
         appType: 'Web Game',
         techArr: ['HTML', 'CSS', 'JavaScript'],
         appInfo: '✖️ ⭕ Web-based JavaScript implementation of the popular game Tic Tac Toe.',
+        demoURL: false,
+        imgArr: [],
     },
     {
         id: 10,
@@ -99,6 +117,8 @@ export const appData = [
         appType: 'Front End SPA',
         techArr: ['HTML', 'CSS', 'JavaScript', 'lit-html', 'Axios', 'Page.js'],
         appInfo: '☀️ 🌤️ 🌧️ 🌨️ 🌡️ Web application with modern responsive design showing information about the weather, air quality & more.',
+        demoURL: 'https://weather-a2a51.web.app/',
+        imgArr: [],
     },
     {
         id: 11,
@@ -107,6 +127,8 @@ export const appData = [
         appType: 'Full Stack Web App',
         techArr: ['Angular', 'TypeScript', 'Firebase', 'Puppeteer', 'CSS', 'HTML'],
         appInfo: '🏀📆💻▶️ A Fully Responsive Full Stack Web Application offering a modern dashboard with NBA stats, team rosters, standings, news, analysis, transactions, player stats and more.',
+        demoURL: 'https://nba-1-480a7.web.app/',
+        imgArr: [],
     },
     {
         id: 12,
@@ -115,6 +137,8 @@ export const appData = [
         appType: 'Full Stack Web App',
         techArr: ['React', 'JavaScript', 'Firebase', 'Appwrite', 'Swipper.js', 'HTML', 'CSS'],
         appInfo: '🎬📺🏰🎉TV Kingdom, where the magic of television meets the future: a modern, fully responsive, full-stack web application that unlocks a kingdom of limitless TV show data at your fingertips!',
+        demoURL: 'https://kingdom-71759.web.app/',
+        imgArr: [],
     },
     {
         id: 13,
@@ -123,5 +147,8 @@ export const appData = [
         appType: 'Full Stack Web App',
         techArr: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind', 'Mongoose', 'JavaScript', 'HTML', 'CSS'],
         appInfo: '💬📱💻Socket.io-powered chat app enabling real-time messaging across multiple chat rooms, with live event updates and user presence.',
+        demoURL: 'https://js-websocket-chat.onrender.com/',
+        notes: ['DEMO: First loading takes about 30 seconds.', 'Further ones are instant. Free Hosting limitation.'],
+        imgArr: [],
     }
 ];
