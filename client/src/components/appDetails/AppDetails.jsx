@@ -68,6 +68,11 @@ function AppDetails() {
                     <div className='card-cage' data-id={data.id}>
                         <div className="details-info">
                             <p>{data.appInfo}</p>
+                            {data.notes
+                                ? (<div className="red">
+                                    {data.notes.map((n, ind) => <p key={ind + '-note-' + data.id}>{n}</p>)}
+                                </div>)
+                                : (<></>)}
                         </div>
                         <h2>Tech Stack</h2>
                         <div className="details-tech tags">
@@ -86,7 +91,7 @@ function AppDetails() {
                     </div>
                     <div className="cards-cage app-images">
                         <PreviewImg src={data.appPoster} onClick={openModal} />
-                        {/* MAP ALL IMAGES + card loaders */}
+                        {/* MAP ALL IMAGES (create img arr for each app) + card loaders */}
                     </div>
                     <div id="app-modal" className={`modal${modalOpen ? ' modal-open' : ''}`}>
                         <div className="modal-content">
