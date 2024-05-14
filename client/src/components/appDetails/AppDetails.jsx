@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import TechImg from '../shared/techImg/TechImg';
 import { appData } from '../../util/assets';
 import PageLoader from '../shared/pageLoader/PageLoader';
+import PreviewImg from '../shared/previewImg/PreviewImg';
 
 function AppDetails() {
     // 1 - 9 small | 10 - 13 large
@@ -14,6 +15,8 @@ function AppDetails() {
     const [modalURL, setModalURL] = useState('');
 
     useEffect(() => {
+        if (modalURL == '') setModalOpen(false);
+
         window.addEventListener('click', backdropCloseModal);
         return () => {
             window.removeEventListener('click', backdropCloseModal);
@@ -31,6 +34,10 @@ function AppDetails() {
             setLoading(false);
         }
     }, [data]);
+
+    useEffect(() => {
+        if (modalURL == '') setModalOpen(false);
+    }, [modalURL])
 
     function openModal(e) {
         // console.log(e.target.src);
@@ -78,19 +85,18 @@ function AppDetails() {
                         </div>
                     </div>
                     <div className="cards-cage app-images">
-                        <article className='tooltip-anchor'>
-                            <img src={data.appPoster} alt="img" onClick={openModal} />
-                            <div className='tooltip'>View in full size</div>
-                        </article>
-                        <article className='tooltip-anchor'>
-                            <img src="https://github.com/mirokrastanov/Responsive-Weather-Application/raw/main/src/images/github-doc/w14.png?raw=true" alt="img" onClick={openModal} />
-                            <div className='tooltip'>View in full size</div>
-                        </article>
+                        <PreviewImg src={data.appPoster} onClick={openModal} />
+                        {/* MAP ALL IMAGES + card loaders */}
                     </div>
                     <div id="app-modal" className={`modal${modalOpen ? ' modal-open' : ''}`}>
                         <div className="modal-content">
-                            <img src={modalURL} alt="img" onClick={closeModal} className='tooltip-anchor' />
-                            <div className='tooltip'>Close</div>
+                            <img src={modalURL} alt="img" onClick={closeModal} />
+                            <Link to={modalURL} target='_blank' className='tooltip-anchor'>
+                                <span className="material-symbols-outlined open-in-new">
+                                    open_in_new
+                                </span>
+                                <div className='tooltip'>Full Size</div>
+                            </Link>
                         </div>
                     </div>
                 </>)
