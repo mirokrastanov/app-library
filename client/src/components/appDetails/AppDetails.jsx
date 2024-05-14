@@ -6,11 +6,19 @@ import { appData } from '../../util/assets';
 import PageLoader from '../shared/pageLoader/PageLoader';
 
 function AppDetails() {
-    // grab route param id
     // 1 - 9 small | 10 - 13 large
     const { id } = useParams();
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalURL, setModalURL] = useState('');
+
+    useEffect(() => {
+        window.addEventListener('click', backdropCloseModal);
+        return () => {
+            window.removeEventListener('click', backdropCloseModal);
+        };
+    }, [])
 
     useEffect(() => {
         // console.log(id);
@@ -23,6 +31,22 @@ function AppDetails() {
             setLoading(false);
         }
     }, [data]);
+
+    function openModal(e) {
+        // console.log(e.target.src);
+        setModalURL(e.target.src);
+        setModalOpen(true);
+    }
+
+    function closeModal(e) {
+        setModalOpen(false);
+    }
+
+    function backdropCloseModal(e) {
+        if (e.target.classList.contains('modal')) {
+            setModalOpen(false);
+        }
+    }
 
     return (
         <div className='app-details-ctr'>
@@ -38,7 +62,7 @@ function AppDetails() {
                         <div className="details-info">
                             <p>{data.appInfo}</p>
                         </div>
-                            <h2>Tech Stack</h2>
+                        <h2>Tech Stack</h2>
                         <div className="details-tech tags">
                             {data.techArr.map((techItem, i) => (
                                 <TechImg techName={techItem} key={i + 'techArr--' + techItem} />
@@ -51,6 +75,22 @@ function AppDetails() {
                             <Link to={'/'} className='btn'>Source Code</Link>
                             <Link to={'/'} className='btn btn-demo'>Try Demo</Link>
                             {/* FIX LINKS - gen master object with URLs etc */}
+                        </div>
+                    </div>
+                    <div className="cards-cage app-images">
+                        <article className='tooltip-anchor'>
+                            <img src={data.appPoster} alt="img" onClick={openModal} />
+                            <div className='tooltip'>View in full size</div>
+                        </article>
+                        <article className='tooltip-anchor'>
+                            <img src="https://github.com/mirokrastanov/Responsive-Weather-Application/raw/main/src/images/github-doc/w14.png?raw=true" alt="img" onClick={openModal} />
+                            <div className='tooltip'>View in full size</div>
+                        </article>
+                    </div>
+                    <div id="app-modal" className={`modal${modalOpen ? ' modal-open' : ''}`}>
+                        <div className="modal-content">
+                            <img src={modalURL} alt="img" onClick={closeModal} className='tooltip-anchor' />
+                            <div className='tooltip'>Close</div>
                         </div>
                     </div>
                 </>)
