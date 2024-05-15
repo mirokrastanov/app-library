@@ -30,6 +30,8 @@ export const appData = [
         extDemoURL: null,
         intDemoURL: '/apps/rps',
         imgArr: [],
+        docsURL: 'https://github.com/mirokrastanov/RockPaperScissors/blob/main/README.md',
+        sourceCodeURL: 'https://github.com/mirokrastanov/RockPaperScissors/blob/main/rockPaperScissors.js',
     },
     {
         id: 2,
@@ -41,6 +43,8 @@ export const appData = [
         extDemoURL: null,
         intDemoURL: null,
         imgArr: [],
+        docsURL: '',
+        sourceCodeURL: '',
     },
     {
         id: 3,
@@ -52,6 +56,8 @@ export const appData = [
         extDemoURL: null,
         intDemoURL: null,
         imgArr: [],
+        docsURL: '',
+        sourceCodeURL: '',
     },
     {
         id: 4,
@@ -63,6 +69,8 @@ export const appData = [
         extDemoURL: null,
         intDemoURL: null,
         imgArr: [],
+        docsURL: '',
+        sourceCodeURL: '',
     },
     {
         id: 5,
@@ -74,6 +82,8 @@ export const appData = [
         extDemoURL: null,
         intDemoURL: null,
         imgArr: [],
+        docsURL: '',
+        sourceCodeURL: '',
     },
     {
         id: 6,
@@ -85,6 +95,8 @@ export const appData = [
         extDemoURL: null,
         intDemoURL: null,
         imgArr: [],
+        docsURL: '',
+        sourceCodeURL: '',
     },
     {
         id: 7,
@@ -96,6 +108,8 @@ export const appData = [
         extDemoURL: null,
         intDemoURL: null,
         imgArr: [],
+        docsURL: '',
+        sourceCodeURL: '',
     },
     {
         id: 8,
@@ -107,6 +121,8 @@ export const appData = [
         extDemoURL: null,
         intDemoURL: null,
         imgArr: [],
+        docsURL: '',
+        sourceCodeURL: '',
     },
     {
         id: 9,
@@ -118,6 +134,8 @@ export const appData = [
         extDemoURL: null,
         intDemoURL: null,
         imgArr: [],
+        docsURL: '',
+        sourceCodeURL: '',
     },
     {
         id: 10,
@@ -129,6 +147,8 @@ export const appData = [
         extDemoURL: 'https://weather-a2a51.web.app/',
         intDemoURL: null,
         imgArr: [],
+        docsURL: '',
+        sourceCodeURL: '',
     },
     {
         id: 11,
@@ -140,6 +160,8 @@ export const appData = [
         extDemoURL: 'https://nba-1-480a7.web.app/',
         intDemoURL: null,
         imgArr: [],
+        docsURL: '',
+        sourceCodeURL: '',
     },
     {
         id: 12,
@@ -151,6 +173,8 @@ export const appData = [
         extDemoURL: 'https://kingdom-71759.web.app/',
         intDemoURL: null,
         imgArr: [],
+        docsURL: '',
+        sourceCodeURL: '',
     },
     {
         id: 13,
@@ -163,5 +187,7 @@ export const appData = [
         intDemoURL: null,
         notes: ['DEMO: First loading takes about 30 seconds.', 'Further ones are instant. Free Hosting limitation.'],
         imgArr: [],
+        docsURL: '',
+        sourceCodeURL: '',
     }
 ];
