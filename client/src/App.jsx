@@ -6,7 +6,7 @@ import Navigation from './components/navigation/Navigation';
 import Home from './components/home/Home';
 import NotFound from './components/notFound/NotFound';
 import AppDetails from './components/appDetails/AppDetails';
-import RockPaperScissors from './components/apps/rps/RockPaperScissors';
+import RockPaperScissors from './apps/rps/RockPaperScissors';
 
 function App() {
     const darkTheme = useTheme();
