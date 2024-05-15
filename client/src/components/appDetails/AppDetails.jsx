@@ -16,7 +16,6 @@ function AppDetails() {
 
     useEffect(() => {
         if (modalURL == '') setModalOpen(false);
-        console.log(data.extDemoURL ?? data.intDemoURL);
 
         window.addEventListener('click', backdropCloseModal);
         return () => {
@@ -33,6 +32,7 @@ function AppDetails() {
         // console.log(data);
         if (data !== null && data !== undefined) {
             setLoading(false);
+            console.log(data.extDemoURL ?? data.intDemoURL);
         }
     }, [data]);
 
