@@ -84,8 +84,8 @@ function AppDetails() {
                         <h2>More Options</h2>
                         <div className="details-btns">
                             <Link to={'/'} className='btn btn-home'>Home</Link>
-                            <Link to={'/'} className='btn'>Docs</Link>
-                            <Link to={'/'} className='btn'>Source Code</Link>
+                            <Link to={data.docsURL} target='_blank' className='btn'>Docs</Link>
+                            <Link to={data.sourceCodeURL} target='_blank' className='btn'>Source Code</Link>
                             <Link to={data.extDemoURL ?? data.intDemoURL} className='btn btn-demo'
                                 target={data.extDemoURL ? '_blank' : ''} >Try Demo</Link>
                             {/* FIX LINKS - gen master object with URLs etc */}
