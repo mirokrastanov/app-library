@@ -153,6 +153,7 @@ a {
     cursor: pointer;
     transition: 0.2s;
     letter-spacing: 1px;
+    user-select: none;
 }
 
 .btn:hover {
@@ -179,6 +180,7 @@ a {
     box-shadow: var(--box-shadow-4);
     cursor: pointer;
     transition: var(--transition-1);
+    user-select: none;
 }
 
 .btn-2:hover {
