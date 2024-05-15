@@ -16,6 +16,7 @@ function AppDetails() {
 
     useEffect(() => {
         if (modalURL == '') setModalOpen(false);
+        console.log(data.extDemoURL ?? data.intDemoURL);
 
         window.addEventListener('click', backdropCloseModal);
         return () => {
@@ -85,7 +86,7 @@ function AppDetails() {
                             <Link to={'/'} className='btn btn-home'>Home</Link>
                             <Link to={'/'} className='btn'>Docs</Link>
                             <Link to={'/'} className='btn'>Source Code</Link>
-                            <Link to={'/'} className='btn btn-demo'>Try Demo</Link>
+                            <Link to={data.extDemoURL ?? data.intDemoURL} className='btn btn-demo'>Try Demo</Link>
                             {/* FIX LINKS - gen master object with URLs etc */}
                         </div>
                     </div>
