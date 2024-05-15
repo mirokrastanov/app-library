@@ -32,7 +32,7 @@ function AppDetails() {
         // console.log(data);
         if (data !== null && data !== undefined) {
             setLoading(false);
-            console.log(data.extDemoURL ?? data.intDemoURL);
+            console.log(data.extDemoURL ?? data.intDemoURL); { /* TODO - remove when done */ }
         }
     }, [data]);
 
@@ -86,7 +86,8 @@ function AppDetails() {
                             <Link to={'/'} className='btn btn-home'>Home</Link>
                             <Link to={'/'} className='btn'>Docs</Link>
                             <Link to={'/'} className='btn'>Source Code</Link>
-                            <Link to={data.extDemoURL ?? data.intDemoURL} className='btn btn-demo'>Try Demo</Link>
+                            <Link to={data.extDemoURL ?? data.intDemoURL} className='btn btn-demo'
+                                target={data.extDemoURL ? '_blank' : ''} >Try Demo</Link>
                             {/* FIX LINKS - gen master object with URLs etc */}
                         </div>
                     </div>
