@@ -14,6 +14,10 @@ function RockPaperScissors() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        resetGame();
+    }, [])
+
+    useEffect(() => {
         if (playerChoice !== '' && computerChoice !== '') {
             checkWinner();
             setGameOver(true);
