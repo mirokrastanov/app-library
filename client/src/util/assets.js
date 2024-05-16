@@ -41,10 +41,10 @@ export const appData = [
         techArr: ['HTML', 'CSS', 'JavaScript'],
         appInfo: '❓ A simple web-based JavaScript Number Guessing Game.',
         extDemoURL: null,
-        intDemoURL: null,
+        intDemoURL: '/apps/guess',
         imgArr: [],
-        docsURL: '',
-        sourceCodeURL: '',
+        docsURL: 'https://github.com/mirokrastanov/GuessTheNumber/blob/main/README.md',
+        sourceCodeURL: 'https://github.com/mirokrastanov/GuessTheNumber/blob/main/guessTheNumber.js',
     },
     {
         id: 3,
