@@ -1,13 +1,11 @@
 .app-demo-ctr #guess-tip {
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 18px;
     margin: 20px 0;
     padding: 8px 20px;
-    background: var(--background-2);
-    color: var(--color-star);
     border-radius: 10px;
-    border: 2px solid var(--color-star);
-    box-shadow: var(--box-shadow-2);
+    background: var(--background-2);
+    font-weight: 700;
+    border: 2px solid var(--color-dark-1);
 }
 
 .app-demo-ctr section {
@@ -20,7 +18,8 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-    padding: 0 0 20px 0;
+    border-radius: 15px;
+    margin: 20px 0 30px 0;
 }
 
 .app-demo-ctr #guess-scene form {
@@ -28,6 +27,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
 }
 
 .app-demo-ctr #guess-scene form input {
@@ -95,10 +95,6 @@
     font-weight: 700;
 }
 
-.app-demo-ctr #guess-history .guess-square:first-child * {
-    color: red;
-}
-
 .app-demo-ctr .g-btns {
     display: flex;
     flex-direction: row;
@@ -106,4 +102,27 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+}
+
+.app-demo-ctr .low {
+    color: rgb(0, 194, 0);
+    font-size: 18px;
+}
+
+.app-demo-ctr .high {
+    color: red;
+    font-size: 18px;
+}
+
+.app-demo-ctr #g-win {
+    margin: 20px 0;
+    background: var(--background-2);
+    padding: 5px 20px;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow-4);
+}
+
+.app-demo-ctr #g-win.g-hidden,
+.g-hidden {
+    display: none;
 }

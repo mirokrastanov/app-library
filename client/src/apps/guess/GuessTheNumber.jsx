@@ -66,7 +66,7 @@ function GuessTheNumber() {
 
             <h1>Guess The Number</h1>
             <p>Enter a number between 1-100</p>
-            <p id="guess-tip">Too Low! Guess higher!</p>
+            <p id="guess-tip" className="low">Too Low! Guess higher!</p>
 
             <section>
                 <div id="guess-scene">
@@ -80,32 +80,34 @@ function GuessTheNumber() {
 
                 <h2>Guess History</h2>
                 <div id="guess-history">
-                    <div className="guess-square">
-                        <p>13</p>
+                    <div className="guess-square low">
+                        <span>13</span>
                         <span className="material-symbols-outlined">arrow_upward</span>
                     </div>
-                    <div className="guess-square">
-                        <p>53</p>
+                    <div className="guess-square high">
+                        <span>53</span>
                         <span className="material-symbols-outlined">arrow_downward</span>
                     </div>
-                    <div className="guess-square">
-                        <p>13</p>
+                    <div className="guess-square low">
+                        <span>13</span>
                         <span className="material-symbols-outlined">arrow_upward</span>
                     </div>
-                    <div className="guess-square">
-                        <p>53</p>
+                    <div className="guess-square high">
+                        <span>53</span>
                         <span className="material-symbols-outlined">arrow_downward</span>
                     </div>
-                    <div className="guess-square">
-                        <p>13</p>
+                    <div className="guess-square low">
+                        <span>13</span>
                         <span className="material-symbols-outlined">arrow_upward</span>
                     </div>
-                    <div className="guess-square">
-                        <p>53</p>
+                    <div className="guess-square high">
+                        <span>53</span>
                         <span className="material-symbols-outlined">arrow_downward</span>
                     </div>
                 </div>
             </section>
+
+            <h1 id="g-win" className="g-hidden">You win! The Number is: 38</h1>
 
             <div className="g-btns">
                 <div className='btn'>Give Up</div>
