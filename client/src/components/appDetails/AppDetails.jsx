@@ -92,7 +92,9 @@ function AppDetails() {
                     </div>
                     <div className="cards-cage app-images">
                         <PreviewImg src={data.appPoster} onClick={openModal} />
-                        {/* MAP ALL IMAGES (create img arr for each app) + card loaders */}
+                        {data.imgArr.map((img, imgIndex) => (
+                            <PreviewImg key={imgIndex + '--' + 'img-prev'} src={img} onClick={openModal} />
+                        ))}
                     </div>
                     <div id="app-modal" className={`modal${modalOpen ? ' modal-open' : ''}`}>
                         <div className="modal-content">
