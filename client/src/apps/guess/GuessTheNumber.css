@@ -1,0 +1,109 @@
+.app-demo-ctr #guess-tip {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 20px 0;
+    padding: 8px 20px;
+    background: var(--background-2);
+    color: var(--color-star);
+    border-radius: 10px;
+    border: 2px solid var(--color-star);
+    box-shadow: var(--box-shadow-2);
+}
+
+.app-demo-ctr section {
+    margin-bottom: 40px;
+}
+
+.app-demo-ctr #guess-scene {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 0 0 20px 0;
+}
+
+.app-demo-ctr #guess-scene form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-demo-ctr #guess-scene form input {
+    font-size: 30px;
+    padding: 5px;
+    padding-left: 20px;
+    font-weight: 700;
+    width: 100px;
+    text-align: center;
+    border-radius: 10px 0 0 10px;
+    outline: none;
+    border: 2px solid var(--color-dark-2-all);
+}
+
+.app-demo-ctr #guess-scene form button {
+    font-size: 30px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 0 10px 10px 0;
+    outline: none;
+    border: 2px solid var(--color-dark-2-all);
+    border-left: none;
+    background: var(--color-accent-2);
+    color: var(--color-black);
+    cursor: pointer;
+}
+
+.app-demo-ctr p {
+    font-size: 18px;
+}
+
+.app-demo-ctr #guess-history {
+    margin: 5px;
+    background: var(--background-2);
+    border: 2px solid var(--color-dark-1);
+    width: 250px;
+    height: 75px;
+    border-radius: 10px;
+    padding: 5px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 6px;
+}
+
+.app-demo-ctr #guess-history::-webkit-scrollbar {
+    height: 10px;
+}
+
+.app-demo-ctr #guess-history .guess-square {
+    height: 100%;
+    width: 55px;
+    padding: 2px 2px 2px 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    border-radius: 10px;
+    border: 2px solid var(--color-dark-1);
+    font-weight: 700;
+}
+
+.app-demo-ctr #guess-history .guess-square:first-child * {
+    color: red;
+}
+
+.app-demo-ctr .g-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
