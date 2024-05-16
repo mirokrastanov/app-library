@@ -7,6 +7,7 @@ import Home from './components/home/Home';
 import NotFound from './components/notFound/NotFound';
 import AppDetails from './components/appDetails/AppDetails';
 import RockPaperScissors from './apps/rps/RockPaperScissors';
+import GuessTheNumber from './apps/guess/GuessTheNumber';
 
 function App() {
     const darkTheme = useTheme();
@@ -29,6 +30,7 @@ function App() {
                     <Route path='/details/:id' element={<AppDetails />} />
 
                     <Route path='/apps/rps' element={<RockPaperScissors />} />
+                    <Route path='/apps/guess' element={<GuessTheNumber />} />
 
 
 
