@@ -32,7 +32,7 @@ function AppDetails() {
         // console.log(data);
         if (data !== null && data !== undefined) {
             setLoading(false);
-            console.log(data.extDemoURL ?? data.intDemoURL); { /* TODO - remove when done */ }
+            // console.log(data.extDemoURL ?? data.intDemoURL);
         }
     }, [data]);
 
@@ -88,7 +88,6 @@ function AppDetails() {
                             <Link to={data.sourceCodeURL} target='_blank' className='btn'>Source Code</Link>
                             <Link to={data.extDemoURL ?? data.intDemoURL} className='btn btn-demo'
                                 target={data.extDemoURL ? '_blank' : ''} >Try Demo</Link>
-                            {/* FIX LINKS - gen master object with URLs etc */}
                         </div>
                     </div>
                     <div className="cards-cage app-images">
