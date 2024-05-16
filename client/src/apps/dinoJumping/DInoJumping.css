@@ -1,0 +1,130 @@
+#dino * {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+#dino .game {
+    width: 500px;
+    height: 200px;
+    border: 1px solid black;
+    margin: auto;
+    background: white;
+}
+
+#dino #character {
+    width: 33px;
+    height: 50px;
+    /* background-color: red; */
+    background-image: url('/dino/dyno_03.png');
+    background-size: cover;
+    position: relative;
+    top: 150px;
+}
+
+#dino .animate {
+    animation: jump 0.6s linear;
+}
+
+@keyframes jump {
+    0% {
+        top: 150px;
+    }
+
+    20% {
+        top: 120px;
+    }
+
+    40% {
+        top: 100px;
+    }
+
+    60% {
+        top: 100px;
+    }
+
+    80% {
+        top: 120px;
+    }
+
+    100% {
+        top: 150px;
+    }
+}
+
+#dino #block {
+    /* background-color: blue; */
+    background-image: url('/dino/pixel-cactus-01.png');
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 130px;
+    left: 500px;
+    animation: block 2s infinite linear;
+}
+
+@keyframes block {
+    0% {
+        left: 500px
+    }
+
+    100% {
+        left: -20px
+    }
+}
+
+#dino p {
+    text-align: center;
+    margin: 5px auto;
+    padding: 5px 10px;
+    width: fit-content;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 'Prototype';
+}
+
+#dino html,
+#dino body {
+    height: 100%;
+    width: 100%;
+}
+
+/* .paused {
+    animation-play-state: paused;
+} */
+
+#dino .final-wrap {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: antiquewhite;
+}
+
+#dino .final-score,
+#dino .new-game-btn {
+    /* background: rgb(48, 240, 240); */
+    background: rgb(0, 31, 36);
+    background: linear-gradient(90deg, rgba(0, 31, 36, 1) 0%, rgba(29, 114, 201, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    font-size: 24px;
+    margin: 5px;
+    padding: 5px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    font-family: 'Prototype';
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+#dino .new-game-btn:hover {
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.75);
+    transform: translateY(-2px);
+    background: lightblue;
+    cursor: pointer;
+    border: 3px solid gray;
+    border-radius: 15px;
+}
