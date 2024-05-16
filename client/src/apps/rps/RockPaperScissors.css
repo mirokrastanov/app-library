@@ -6,11 +6,16 @@
     align-items: center;
     color: var(--color-bg-reverse);
     text-align: center;
+    user-select: none;
 }
 
 .app-demo-ctr img {
     height: 200px;
     transition: linear 0.2s;
+}
+
+.app-demo-ctr .app-top {
+    margin: 10px 10px 60px 10px;
 }
 
 .app-demo-ctr #select img:hover {
@@ -20,7 +25,6 @@
 
 .app-demo-ctr #select,
 .app-demo-ctr #score {
-    /* background: red; */
     padding: 10px;
     width: 100%;
     min-height: 220px;
@@ -46,25 +50,24 @@
 
 .app-demo-ctr #score h2 {
     color: var(--color-bg-reverse);
-    background: var(--background-1);
+    background: var(--background-2);
     padding: 5px 20px;
     border-radius: 25px;
     box-shadow: var(--box-shadow-1);
     margin-bottom: 20px;
-    border: 2px solid rebeccapurple;
 }
 
 .app-demo-ctr #score #computer {
-    background: var(--background-3-light);
+    background: var(--background-2);
 }
 
 .app-demo-ctr #win,
 .app-demo-ctr #choice {
-    background: var(--background-4);
     padding: 5px 50px;
-    border-radius: 10px;
-    border: 2px solid rebeccapurple;
-    box-shadow: var(--box-shadow-4);
+    border-radius: 25px;
+    text-transform: uppercase;
+    background: var(--background-2);
+    box-shadow: var(--box-shadow-1);
 }
 
 .app-demo-ctr .el-hidden,

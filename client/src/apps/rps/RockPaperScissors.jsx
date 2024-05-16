@@ -61,8 +61,7 @@ function RockPaperScissors() {
     return (
         <div className='app-demo-ctr'>
             <h1>APP DEMO</h1>
-            <div style={{ margin: '10px 10px 30px 10px' }} className='btn' onClick={() => navigate(-1)}>Go Back</div>
-
+            <div className='btn app-top' onClick={() => navigate(-1)}>Go Back</div>
 
             <h2 id="choice" className={gameOver ? 'el-hidden' : ''}>Make your choice</h2>
             <div id="select" className={gameOver ? 'el-hidden' : ''}>
