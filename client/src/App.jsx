@@ -8,6 +8,7 @@ import NotFound from './components/notFound/NotFound';
 import AppDetails from './components/appDetails/AppDetails';
 import RockPaperScissors from './apps/rps/RockPaperScissors';
 import GuessTheNumber from './apps/guess/GuessTheNumber';
+import DinoJumping from './apps/dinoJumping/DinoJumping';
 
 function App() {
     const darkTheme = useTheme();
@@ -31,6 +32,7 @@ function App() {
 
                     <Route path='/apps/rps' element={<RockPaperScissors />} />
                     <Route path='/apps/guess' element={<GuessTheNumber />} />
+                    <Route path='/apps/dino-jumping' element={<DinoJumping />} />
 
 
 
