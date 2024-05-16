@@ -1,15 +1,18 @@
 #dino * {
-    padding: 0;
-    margin: 0;
     overflow: hidden;
+}
+
+.app-demo-ctr#dino h1 {
+    padding-bottom: 10px;
 }
 
 #dino .game {
     width: 500px;
     height: 200px;
     border: 1px solid black;
-    margin: auto;
+    margin: 30px 0;
     background: white;
+    border-radius: 15px;
 }
 
 #dino #character {
@@ -74,50 +77,38 @@
     }
 }
 
-#dino p {
-    text-align: center;
-    margin: 5px auto;
-    padding: 5px 10px;
-    width: fit-content;
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size: 20px;
-    font-weight: 900;
-    font-family: 'Prototype';
-}
-
-#dino html,
-#dino body {
-    height: 100%;
-    width: 100%;
-}
-
 /* .paused {
     animation-play-state: paused;
 } */
 
 #dino .final-wrap {
-    height: 100%;
-    width: 100%;
+    margin: 30px 0;
+    width: 500px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: antiquewhite;
+    border: 1px solid black;
+    border-radius: 15px;
 }
 
 #dino .final-score,
-#dino .new-game-btn {
+#dino .new-game-btn,
+#dino p {
     /* background: rgb(48, 240, 240); */
     background: rgb(0, 31, 36);
     background: linear-gradient(90deg, rgba(0, 31, 36, 1) 0%, rgba(29, 114, 201, 1) 0%, rgba(0, 212, 255, 1) 100%);
     font-size: 24px;
-    margin: 5px;
     padding: 5px 10px;
     border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     font-family: 'Prototype';
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin: 5px auto;
+    font-weight: 900;
 }
 
 #dino .new-game-btn:hover {
@@ -127,4 +118,8 @@
     cursor: pointer;
     border: 3px solid gray;
     border-radius: 15px;
+}
+
+#dino h3 {
+    margin-top: 30px;
 }
