@@ -123,6 +123,7 @@
 }
 
 .app-demo-ctr #g-win.g-hidden,
-.g-hidden {
+.app-demo-ctr #guess-scene .g-hidden,
+.app-demo-ctr .g-hidden {
     display: none;
 }

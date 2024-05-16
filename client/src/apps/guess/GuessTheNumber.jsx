@@ -6,56 +6,84 @@ function GuessTheNumber() {
     const [gameOver, setGameOver] = useState(false);
     const [playerChoice, setPlayerChoice] = useState('');
     const [computerChoice, setComputerChoice] = useState('');
-    const [currentHover, setCurrentHover] = useState('');
-    const [winner, setWinner] = useState('');
-    const isRock = currentHover === 'r';
-    const isPaper = currentHover === 'p';
-    const isScissors = currentHover === 's';
+    const [winner, setWinner] = useState(false);
+    const [isLower, setIsLower] = useState(null);
+    const [inputValue, setInputValue] = useState('');
+    const [emptyInput, setEmptyInput] = useState(false);
+    const [firstInteraction, setFirstInteraction] = useState(true);
+    const [history, setHistory] = useState([]);
+
     const navigate = useNavigate();
 
     useEffect(() => {
         resetGame();
-    }, [])
+        setComputerChoice(genComputerChoice());
+    }, []);
 
     useEffect(() => {
-        if (playerChoice !== '' && computerChoice !== '') {
-            checkWinner();
-            setGameOver(true);
-        }
-    }, [computerChoice])
+        checkWinner();
+    }, [playerChoice]);
 
-    function onMouseOver(e) { setCurrentHover(e.target.dataset.choice) }
-    function onMouseLeave(e) { setCurrentHover('') }
-    function onChoiceSelected(e) {
-        if (e.target.dataset.choice === 'r' || e.target.dataset.choice === 'p' || e.target.dataset.choice === 's') {
-            setPlayerChoice(e.target.dataset.choice);
-            setComputerChoice(genComputerChoice());
-        }
-    }
     function resetGame() {
         setGameOver(false);
         setPlayerChoice('');
-        setComputerChoice('');
-        setCurrentHover('');
-        setWinner('');
+        setComputerChoice(genComputerChoice());
+        setWinner(false);
+        setIsLower(null);
+        setInputValue('');
+        setEmptyInput(false);
+        setFirstInteraction(true);
+        setHistory([]);
     }
+
     function genComputerChoice() {
-        const choices = ['r', 'p', 's'];
-        return choices[Math.floor(Math.random() * 3)];
+        return Math.floor((Math.random() * 100) + 1);
     }
+
     function checkWinner() {
         // console.log(playerChoice, ' | ', computerChoice);
-        if (playerChoice === computerChoice) {
-            setWinner('It\'s a tie');
-        } else if (playerChoice === 'r' && computerChoice === 's') {
-            setWinner('You win');
-        } else if (playerChoice === 'p' && computerChoice === 'r') {
-            setWinner('You win');
-        } else if (playerChoice === 's' && computerChoice === 'p') {
-            setWinner('You win');
-        } else {
-            setWinner('You lose');
+        if (playerChoice != '' && playerChoice) {
+            if (playerChoice == computerChoice) {
+                setIsLower(null);
+                setWinner(true);
+                setGameOver(true);
+                setHistory(prev => [{ num: playerChoice, isLower: null }, ...prev]);
+                return;
+            } else if (playerChoice < computerChoice) {
+                setIsLower(true);
+            } else {
+                setIsLower(false);
+            }
+            setHistory(prev => [{ num: playerChoice, isLower: playerChoice < computerChoice }, ...prev]);
         }
+    }
+
+    function giveUp(e) {
+        setIsLower(null);
+        setGameOver(true);
+
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        setFirstInteraction(false);
+        if (inputValue == '') {
+            setEmptyInput(true);
+            setPlayerChoice('');
+            return;
+        }
+        setPlayerChoice(e.target.guess.value);
+    }
+
+    function handleChange(e) {
+        e.preventDefault();
+        setInputValue(e.target.value);
+    }
+
+    function squareCheck(xIsLower) {
+        if (xIsLower == null) return '';
+        else if (xIsLower) return ' low';
+        else return ' high';
     }
 
     return (
@@ -65,53 +93,60 @@ function GuessTheNumber() {
 
 
             <h1>Guess The Number</h1>
-            <p>Enter a number between 1-100</p>
-            <p id="guess-tip" className="low">Too Low! Guess higher!</p>
+            <p className={gameOver ? 'g-hidden' : ''}>Enter a number between 1-100</p>
+            {firstInteraction && !gameOver
+                ? (<p id="guess-tip" className="low">Come on. Give it a try.</p>)
+                : (<></>)}
+            {!firstInteraction && emptyInput && playerChoice == '' && !gameOver
+                ? (<p id="guess-tip" className="high">Input is empty!</p>)
+                : (<></>)}
+            {isLower && playerChoice != '' && playerChoice && !winner && !gameOver
+                ? (<p id="guess-tip" className="low">Too Low! Guess higher!</p>)
+                : (<></>)}
+            {!isLower && playerChoice != '' && playerChoice && !winner && !gameOver
+                ? (<p id="guess-tip" className="high">Too High! Guess lower!</p>)
+                : (<></>)}
+            {winner
+                ? (<p id="guess-tip" className="low">YOU WIN!</p>)
+                : (<></>)}
+            {gameOver && !winner
+                ? (<p id="guess-tip" className="high">You gave up.</p>)
+                : (<></>)}
 
             <section>
                 <div id="guess-scene">
-                    <form>
+                    <form onSubmit={handleSubmit} className={gameOver ? 'g-hidden' : ''}>
                         <label htmlFor="guess"></label>
-                        <input name='guess' type="number" placeholder="14?" />
+                        <input name='guess' type="number" placeholder="14?" min={1} max={100}
+                            onChange={handleChange} value={inputValue} />
                         <button type="submit">Guess</button>
                     </form>
-                    <p>Guesses: 3</p>
+                    {gameOver
+                        ? (<h2>The Number is: {computerChoice}</h2>)
+                        : (<></>)}
+                    <h3>Guesses: {history.length}</h3>
                 </div>
 
                 <h2>Guess History</h2>
                 <div id="guess-history">
-                    <div className="guess-square low">
-                        <span>13</span>
-                        <span className="material-symbols-outlined">arrow_upward</span>
-                    </div>
-                    <div className="guess-square high">
-                        <span>53</span>
-                        <span className="material-symbols-outlined">arrow_downward</span>
-                    </div>
-                    <div className="guess-square low">
-                        <span>13</span>
-                        <span className="material-symbols-outlined">arrow_upward</span>
-                    </div>
-                    <div className="guess-square high">
-                        <span>53</span>
-                        <span className="material-symbols-outlined">arrow_downward</span>
-                    </div>
-                    <div className="guess-square low">
-                        <span>13</span>
-                        <span className="material-symbols-outlined">arrow_upward</span>
-                    </div>
-                    <div className="guess-square high">
-                        <span>53</span>
-                        <span className="material-symbols-outlined">arrow_downward</span>
-                    </div>
+                    {history.map((x, i) => (<div key={'s-h-' + i}
+                        className={`guess-square${squareCheck(x.isLower)}`}>
+                        <span>{x.num}</span>
+                        {squareCheck(x.isLower) == ''
+                            ? (<span className="material-symbols-outlined">verified</span>)
+                            : (x.isLower
+                                ? (<span className="material-symbols-outlined">arrow_upward</span>)
+                                : (<span className="material-symbols-outlined">arrow_downward</span>)
+                            )}
+                    </div>))}
                 </div>
             </section>
 
             <h1 id="g-win" className="g-hidden">You win! The Number is: 38</h1>
 
             <div className="g-btns">
-                <div className='btn'>Give Up</div>
-                <div className='btn'>Play Again</div>
+                <div className={`btn${gameOver ? ' g-hidden' : ''}`} onClick={giveUp}>Give Up</div>
+                <div className='btn' onClick={resetGame}>Play Again</div>
             </div>
         </div>
     )
