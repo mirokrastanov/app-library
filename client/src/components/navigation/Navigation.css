@@ -329,7 +329,10 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-
+.bk-nav-link {
+    margin: 0 2px;
+    padding: 0 8px;
+}
 
 
 

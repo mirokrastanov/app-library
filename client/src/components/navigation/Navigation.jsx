@@ -100,6 +100,14 @@ function Navigation() {
             </label>
 
             <ul className="nav-links">
+
+                <li className={`nav-link a-left${mobileWidth ? '' : ' tooltip-anchor'}`}>
+                    <div onClick={() => navigate(-1)} className="bk-nav-link">
+                        <span className="material-symbols-outlined">arrow_back</span>
+                    </div>
+                    <div className='tooltip'>Go Back</div>
+                </li>
+
                 <NavSearch searchValue={searchValue} checks={[searchShown, mobileWidth]}
                     handlers={[searchToggleHandler, searchOnSubmitHandler, searchOnChangeHandler]} />
                 <NavBtn target={'Home'} check={mobileWidth} handler={navHandler} />
