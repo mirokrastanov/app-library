@@ -60,7 +60,9 @@ function DinoJumping() {
         if (character.current.classList == "animate") return;
         character.current.classList.add("animate");
         setTimeout(function () {
-            character.current.classList.remove("animate");
+            if (character.current !== null) {
+                character.current.classList.remove("animate");
+            }
         }, 600);
     }
 
@@ -74,7 +76,6 @@ function DinoJumping() {
         <div className="app-demo-ctr" id="dino">
             <h1>APP DEMO</h1>
             <div className='btn' onClick={() => navigate(-1)}>Go Back</div>
-            
             <h3>Press Spacebar or Left Mouse Click to jump</h3>
 
             {!gameEnded && <>
