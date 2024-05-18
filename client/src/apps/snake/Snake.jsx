@@ -19,33 +19,27 @@ function Snake() {
 
     useEffect(() => {
 
-        window.addEventListener('keydown', handleInput);
+        window.addEventListener('keydown', moveSnake);
         return () => {
-            window.removeEventListener('keydown', handleInput);
+            window.removeEventListener('keydown', moveSnake);
         };
-    }, []);
+    }, [dir]);
 
-    function handleInput(e) {
-        // console.log(e);
+    function moveSnake(e) {
         //   UP   -  DOWN  -   LEFT  -  RIGHT
         //   38   -   40   -    37   -   39
         // [0,-1] - [0, 1] - [-1, 0] - [1, 0]
-        moveSnake(e.keyCode);
+        const keyCode = e.keyCode;
 
-
-        // if (e.key == 'ArrowUp' && speed.y == 0) setInputSpeed({ x: 0, y: -1 })
-        // else if (e.key == 'ArrowDown' && speed.y == 0) setInputSpeed({ x: 0, y: 1 })
-        // else if (e.key == 'ArrowLeft' && speed.x == 0) setInputSpeed({ x: -1, y: 0 })
-        // else if (e.key == 'ArrowRight' && speed.x == 0) setInputSpeed({ x: 1, y: 0 })
+        if ((keyCode == 38 && dir[1] == 0) || (keyCode == 40 && dir[1] == 0)
+            || (keyCode == 37 && dir[0] == 0) || (keyCode == 39 && dir[0] == 0)) {
+            setDir(DIRECTIONS[keyCode])
+        }
     }
 
     const endGame = () => {
         setSpeed(null);
         setGameOver(true);
-    };
-
-    const moveSnake = (keyCode) => {
-        keyCode >= 37 && keyCode <= 40 && setDir(DIRECTIONS[keyCode])
     };
 
     const createApple = () =>
