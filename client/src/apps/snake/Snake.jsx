@@ -109,10 +109,23 @@ function Snake() {
 
 
     return (
-        <div className="app-demo-ctr" id="dino">
+        <div className="app-demo-ctr sn-ctr" id="dino">
             <h1>Snake Demo</h1>
+            {gameOver && (
+                <div id="snake-controls">
+                    <h4>CONTROLS</h4>
+                    <p>
+                        <span className="material-symbols-outlined">arrow_upward</span>
+                        <br />
+                        <span className="material-symbols-outlined">arrow_back</span>
+                        <span className="material-symbols-outlined">arrow_downward</span>
+                        <span className="material-symbols-outlined">arrow_forward</span>
+                    </p>
+                </div>
+            )}
+
             <div id="snake-board">
-                <div id="snake-score">Score: {snake.length * 100} pts</div>
+                <div id="snake-score">Score: {snake.length * 1000} pts</div>
                 <canvas id="canvas"
                     ref={canvasRef}
                     width={`${CANVAS_SIZE[0]}px`}
