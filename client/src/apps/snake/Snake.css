@@ -8,6 +8,11 @@
 #snake-board #canvas {
     border: 3px solid orange;
     background-color: antiquewhite;
+
+    background-image:
+        repeating-linear-gradient(#ccc 0 1px, transparent 1px 100%),
+        repeating-linear-gradient(90deg, #ccc 0 1px, transparent 1px 100%);
+    background-size: 40px 40px;
 }
 
 #snake-board #end-btn {
