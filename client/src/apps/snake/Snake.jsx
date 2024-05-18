@@ -1,122 +1,122 @@
 import './Snake.css';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { drawGrid, clearCanvas, drawRect, spawnApple } from './snakeUtil.js';
+import { useInterval } from './useInterval.js';
+import { CANVAS_SIZE, SNAKE_START, APPLE_START, SCALE, SPEED, DIRECTIONS } from './constants.js';
 
+
+/**@type {CanvasRenderingContext2D} */
 function Snake() {
     const navigate = useNavigate();
-
     const canvasRef = useRef(null);
-    const [ctx, setCtx] = useState(null);
-    const [width, height] = [600, 600];
-    const hSize = 20;
-    const vSize = 20;
-    const rectSize = width / hSize;
+    const [snake, setSnake] = useState(SNAKE_START);
+    const [apple, setApple] = useState(APPLE_START);
+    const [dir, setDir] = useState([0, -1]);
+    const [speed, setSpeed] = useState(null);
+    const [gameOver, setGameOver] = useState(true);
 
-    const [snake, setSnake] = useState({ x: 10, y: 10 });
-    const [tail, setTail] = useState({ segments: [], size: 3 });
-    const [apple, setApple] = useState({ x: 5, y: 15 });
-    const [speed, setSpeed] = useState({ x: 1, y: 0 });
-    const [inputSpeed, setInputSpeed] = useState({ x: 1, y: 0 });
-    const [intervalId, setIntervalId] = useState(null);
-    const [score, setScore] = useState(0);
+    useInterval(() => gameLoop(), speed);
 
     useEffect(() => {
-        if (canvasRef.current) {
-            const context = canvasRef.current.getContext('2d');
-            setCtx(context);
-        }
 
-        const handleKeyDown = (e) => {
-            if (e.key === 'ArrowUp' && speed.y === 0) setInputSpeed({ x: 0, y: -1 });
-            else if (e.key === 'ArrowDown' && speed.y === 0) setInputSpeed({ x: 0, y: 1 });
-            else if (e.key === 'ArrowLeft' && speed.x === 0) setInputSpeed({ x: -1, y: 0 });
-            else if (e.key === 'ArrowRight' && speed.x === 0) setInputSpeed({ x: 1, y: 0 });
-        };
-
-        window.addEventListener('keydown', handleKeyDown);
+        window.addEventListener('keydown', handleInput);
         return () => {
-            window.removeEventListener('keydown', handleKeyDown);
+            window.removeEventListener('keydown', handleInput);
         };
     }, []);
 
-    useEffect(() => {
-        startGame();
+    function handleInput(e) {
+        // console.log(e);
+        //   UP   -  DOWN  -   LEFT  -  RIGHT
+        //   38   -   40   -    37   -   39
+        // [0,-1] - [0, 1] - [-1, 0] - [1, 0]
+        moveSnake(e.keyCode);
 
-    }, [ctx])
 
-    function startGame() {
-        setSnake({ x: 10, y: 10 });
-        setTail({ segments: [], size: 3 });
-        setSpeed({ x: 1, y: 0 });
-        setInputSpeed({ x: 1, y: 0 });
-        setApple(spawnApple(hSize, vSize, tail));
-        setScore(0);
+        // if (e.key == 'ArrowUp' && speed.y == 0) setInputSpeed({ x: 0, y: -1 })
+        // else if (e.key == 'ArrowDown' && speed.y == 0) setInputSpeed({ x: 0, y: 1 })
+        // else if (e.key == 'ArrowLeft' && speed.x == 0) setInputSpeed({ x: -1, y: 0 })
+        // else if (e.key == 'ArrowRight' && speed.x == 0) setInputSpeed({ x: 1, y: 0 })
+    }
 
-        if (intervalId) clearInterval(intervalId);
-        const newIntervalId = setInterval(mainLoop, 100);
-        setIntervalId(newIntervalId);
+    const endGame = () => {
+        setSpeed(null);
+        setGameOver(true);
     };
 
-    function tick() {
-        setScore((tail.size - 3) * 1000);
+    const moveSnake = (keyCode) => {
+        keyCode >= 37 && keyCode <= 40 && setDir(DIRECTIONS[keyCode])
+    };
 
-        let newTailSegments = [...tail.segments, { x: snake.x, y: snake.y }];
-        if (newTailSegments.length > tail.size) newTailSegments.shift();
-        setTail({ ...tail, segments: newTailSegments });
+    const createApple = () =>
+        apple.map((_a, i) => Math.floor(Math.random() * (CANVAS_SIZE[i] / SCALE)));
 
-        let newSnake = { ...snake, x: snake.x + inputSpeed.x, y: snake.y + inputSpeed.y };
-        if (newSnake.y === -1) newSnake.y = vSize - 1;
-        if (newSnake.y === vSize) newSnake.y = 0;
-        if (newSnake.x === -1) newSnake.x = hSize - 1;
-        if (newSnake.x === hSize) newSnake.x = 0;
+    const checkCollision = (piece, snk = snake) => {
+        if (
+            piece[0] * SCALE >= CANVAS_SIZE[0] ||
+            piece[0] < 0 ||
+            piece[1] * SCALE >= CANVAS_SIZE[1] ||
+            piece[1] < 0
+        )
+            return true;
 
-        newTailSegments.forEach(seg => {
-            if (seg.x === newSnake.x && seg.y === newSnake.y) gameOver();
-        });
-
-        if (newSnake.x === apple.x && newSnake.y === apple.y) {
-            setTail({ ...tail, size: tail.size + 1 });
-            setApple(spawnApple(hSize, vSize, tail));
+        for (const segment of snk) {
+            if (piece[0] === segment[0] && piece[1] === segment[1]) return true;
         }
-
-        setSnake(newSnake);
-        setSpeed(inputSpeed);
+        return false;
     };
 
-    function drawScene() {
-        if (!ctx) return;
-        clearCanvas(ctx, width, height);
-        drawGrid(ctx, hSize, vSize, rectSize, width, height);
-        drawRect(ctx, snake.x, snake.y, 'purple', rectSize);
-        tail.segments.forEach(seg => drawRect(ctx, seg.x, seg.y, 'green', rectSize));
-        drawRect(ctx, apple.x, apple.y, 'red', rectSize);
+    const checkAppleCollision = newSnake => {
+        if (newSnake[0][0] === apple[0] && newSnake[0][1] === apple[1]) {
+            let newApple = createApple();
+            while (checkCollision(newApple, newSnake)) {
+                newApple = createApple();
+            }
+            setApple(newApple);
+            return true;
+        }
+        return false;
     };
 
-    function mainLoop() {
-        tick();
-        drawScene();
+    const gameLoop = () => {
+        const snakeCopy = JSON.parse(JSON.stringify(snake));
+        const newSnakeHead = [snakeCopy[0][0] + dir[0], snakeCopy[0][1] + dir[1]];
+        snakeCopy.unshift(newSnakeHead);
+        if (checkCollision(newSnakeHead)) endGame();
+        if (!checkAppleCollision(snakeCopy)) snakeCopy.pop();
+        setSnake(snakeCopy);
     };
 
-    function gameOver() {
-        clearInterval(intervalId);
-        const choice = window.confirm(`Game Over!\nYour Score: ${score}\n\nPlay Again?`);
-        if (choice) startGame();
+    const startGame = () => {
+        setSnake(SNAKE_START);
+        setApple(APPLE_START);
+        setDir([0, -1]);
+        setSpeed(SPEED);
+        setGameOver(false);
     };
 
+    useEffect(() => {
+        const context = canvasRef.current.getContext("2d");
+        context.setTransform(SCALE, 0, 0, SCALE, 0, 0);
+        context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        context.fillStyle = "pink";
+        snake.forEach(([x, y]) => context.fillRect(x, y, 1, 1));
+        context.fillStyle = "lightblue";
+        context.fillRect(apple[0], apple[1], 1, 1);
+    }, [snake, apple, gameOver]);
 
-
-
-
+    // snake, apple, gameOver - dependecies 
     return (
         <div className="app-demo-ctr" id="dino">
             <h1>Snake Demo</h1>
             <div id="snake-board">
-                <div id="snake-score">Score: {score} pts</div>
-                <canvas id="canvas" width={width} height={height}
-                    ref={canvasRef}></canvas>
-
-                <div id="end-btn">Play Again</div>
+                <div id="snake-score">Score: 5000 pts</div>
+                <canvas id="canvas"
+                    ref={canvasRef}
+                    width={`${CANVAS_SIZE[0]}px`}
+                    height={`${CANVAS_SIZE[1]}px`}
+                />
+                {gameOver && <div id="end-btn" onClick={startGame}>Play Again</div>}
             </div>
 
         </div>
