@@ -1,0 +1,81 @@
+/* background-color: azure; */
+#breakout #breakout-board {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#breakout #canvas {
+    border: 3px solid navy;
+    background-color: rgba(185, 143, 224, 0.692);
+}
+
+#breakout #end-btn {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: linear-gradient(to right, #0a6be9 0%, #20f8ff 51%, #0a6be9 100%);
+    background-size: 200% auto;
+    text-align: center;
+    padding: 10px 40px;
+    font-size: 46px;
+    font-family: 'Prototype';
+    cursor: pointer;
+    border-radius: 35px;
+    color: black;
+    transition: 0.5s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#breakout #end-btn:hover {
+    color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    background-position: right center;
+    text-decoration: none;
+}
+
+#breakout #breakout-score,
+#breakout #winner {
+    display: block;
+    margin: 2px auto;
+    background-image: linear-gradient(to right, #0a6be9 0%, #20f8ff 51%, #0a6be9 100%);
+    background-size: 200% auto;
+    text-align: center;
+    padding: 2px 20px;
+    font-size: 20px;
+    font-family: 'Prototype';
+    border-radius: 15px;
+    cursor: help;
+    color: black;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#breakout #winner {
+    position: absolute;
+    font-size: 30px;
+    padding: 5px 30px;
+    border-radius: 35px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+#breakout #breakout-controls {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background: var(--color-dark-2-all);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-2);
+}
+
+#breakout #breakout-controls span {
+    color: white;
+}
