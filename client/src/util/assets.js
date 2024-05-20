@@ -93,10 +93,10 @@ export const appData = [
         techArr: ['HTML', 'CSS', 'JavaScript'],
         appInfo: '🖥️📈 Feature-rich, web-based, JavaScript implementation of a scientific calculator with Light and Dark modes, usable History and number Conversions between different Numeral Systems.',
         extDemoURL: null,
-        intDemoURL: null,
+        intDemoURL: '/apps/scientific-calculator',
         imgArr: [],
-        docsURL: '',
-        sourceCodeURL: '',
+        docsURL: 'https://github.com/mirokrastanov/ScientificCalculator/blob/main/README.md',
+        sourceCodeURL: 'https://github.com/mirokrastanov/ScientificCalculator',
     },
     {
         id: 7,
