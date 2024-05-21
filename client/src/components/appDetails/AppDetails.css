@@ -226,6 +226,15 @@
     display: flex;
 }
 
+.video-ctr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 
 @media screen and (max-width: 1050px) {
     .app-details-ctr .card-cage {

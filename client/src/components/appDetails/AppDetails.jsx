@@ -5,6 +5,7 @@ import TechImg from '../shared/techImg/TechImg';
 import { appData } from '../../util/assets';
 import PageLoader from '../shared/pageLoader/PageLoader';
 import PreviewImg from '../shared/previewImg/PreviewImg';
+import { EmbeddedVideo } from '../../util/Embeds';
 
 function AppDetails() {
     // 1 - 9 small | 10 - 13 large
@@ -89,6 +90,12 @@ function AppDetails() {
                             <Link to={data.extDemoURL ?? data.intDemoURL} className='btn btn-demo'
                                 target={data.extDemoURL ? '_blank' : ''} >Try Demo</Link>
                         </div>
+                    </div>
+                    <div className="video-ctr">
+                        {data.embeds && (<>
+                            {data.embeds.map((embedOption, eIndex) => <EmbeddedVideo key={eIndex + 'embed'}
+                                option={embedOption} />)}
+                        </>)}
                     </div>
                     <div className="cards-cage app-images">
                         <PreviewImg src={data.appPoster} onClick={openModal} />
