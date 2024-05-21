@@ -5,6 +5,7 @@ import { useTheme, useThemeUpdate } from '../../contexts/ThemeContext';
 import { useSearch, useSearchUpdate } from '../../contexts/SearchContext';
 import { NavBtn } from '../shared/navBtn/NavBtn';
 import { NavSearch } from '../shared/navSearch/NavSearch';
+import { NavBkFwd } from '../shared/navBtn/NavBkFwd';
 
 function Navigation() {
     const [topScroll, setTopScroll] = useState(true);
@@ -100,22 +101,12 @@ function Navigation() {
             </label>
 
             <ul className="nav-links">
-
-                <li className={`nav-link a-left${mobileWidth ? '' : ' tooltip-anchor'}`}>
-                    <div onClick={() => navigate(-1)} className="bk-nav-link">
-                        <span className="material-symbols-outlined">arrow_back</span>
-                    </div>
-                    <div className='tooltip'>Go Back</div>
-                </li>
-                <li className={`nav-link a-left${mobileWidth ? '' : ' tooltip-anchor'}`}>
-                    <div onClick={() => navigate(+1)} className="bk-nav-link">
-                        <span className="material-symbols-outlined">arrow_forward</span>
-                    </div>
-                    <div className='tooltip'>Go Forward</div>
-                </li>
-
+                <NavBkFwd target={'Back'} check={mobileWidth} handler={(e) => { navigate(-1); navHandler(e); }} />
+                <NavBkFwd target={'Forward'} check={mobileWidth} handler={(e) => { navigate(+1); navHandler(e); }} />
+                
                 <NavSearch searchValue={searchValue} checks={[searchShown, mobileWidth]}
                     handlers={[searchToggleHandler, searchOnSubmitHandler, searchOnChangeHandler]} />
+
                 <NavBtn target={'Home'} check={mobileWidth} handler={navHandler} />
             </ul>
         </header>
