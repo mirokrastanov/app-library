@@ -14,7 +14,7 @@ function TicTacToe() {
 
     function handleClick(index) {
         if (board[index] || !isGameActive) return;
-        console.log(board[index], index);
+        // console.log(board[index], index);
         const newBoard = board.map((c, i) => {
             if (i == index && !c) return go;
             return c;
