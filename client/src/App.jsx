@@ -10,7 +10,6 @@ import RockPaperScissors from './apps/rps/RockPaperScissors';
 import GuessTheNumber from './apps/guess/GuessTheNumber';
 import DinoJumping from './apps/dinoJumping/DinoJumping';
 import Snake from './apps/snake/Snake';
-import ScientificCalculator from './apps/scientificCalculator/ScientificCalculator';
 
 function App() {
     const darkTheme = useTheme();
@@ -36,7 +35,6 @@ function App() {
                     <Route path='/apps/guess' element={<GuessTheNumber />} />
                     <Route path='/apps/dino-jumping' element={<DinoJumping />} />
                     <Route path='/apps/snake' element={<Snake />} />
-                    <Route path='/apps/scientific-calculator' element={<ScientificCalculator />} />
 
 
                     <Route path='*' element={<NotFound />} />
