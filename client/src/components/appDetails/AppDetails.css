@@ -235,6 +235,12 @@
     gap: 10px;
 }
 
+.video-ctr > video {
+    border-radius: 15px;
+    border: 2px solid var(--color-white-light);
+    box-shadow: var(--box-shadow-7-cards);
+}
+
 
 @media screen and (max-width: 1050px) {
     .app-details-ctr .card-cage {

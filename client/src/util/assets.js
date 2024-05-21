@@ -188,7 +188,7 @@ export const appData = [
         intDemoURL: null,
         notes: ['DEMO: First loading takes about 30 seconds.', 'Further ones are instant. Free Hosting limitation.'],
         imgArr: [],
-        docsURL: '',
-        sourceCodeURL: '',
+        docsURL: 'https://github.com/mirokrastanov/JS-Websocket-Chat/blob/main/README.md',
+        sourceCodeURL: 'https://github.com/mirokrastanov/JS-Websocket-Chat',
     }
 ];
