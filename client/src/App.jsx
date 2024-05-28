@@ -11,6 +11,7 @@ import GuessTheNumber from './apps/guess/GuessTheNumber';
 import DinoJumping from './apps/dinoJumping/DinoJumping';
 import Snake from './apps/snake/Snake';
 import TicTacToe from './apps/ticTacToe/TicTacToe';
+import SearchPage from './components/searchPage/SearchPage';
 
 function App() {
     const darkTheme = useTheme();
@@ -31,6 +32,7 @@ function App() {
                     <Route path='/home' element={<Navigate to='/' />} />
                     <Route path='/index.html' element={<Navigate to='/' />} />
                     <Route path='/details/:id' element={<AppDetails />} />
+                    <Route path='/search' element={<SearchPage />} />
 
                     <Route path='/apps/rps' element={<RockPaperScissors />} />
                     <Route path='/apps/guess' element={<GuessTheNumber />} />
