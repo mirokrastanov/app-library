@@ -60,6 +60,7 @@ function Navigation() {
 
     const searchOnSubmitHandler = (e) => {
         e.preventDefault();
+        if (!searchValue) return;
         setSearchShown(false);
         navigate('/search');
     };
@@ -103,7 +104,6 @@ function Navigation() {
             <ul className="nav-links">
                 <NavBkFwd target={'Back'} check={mobileWidth} handler={(e) => { navigate(-1); navHandler(e); }} />
                 <NavBkFwd target={'Forward'} check={mobileWidth} handler={(e) => { navigate(+1); navHandler(e); }} />
-                
                 <NavSearch searchValue={searchValue} checks={[searchShown, mobileWidth]}
                     handlers={[searchToggleHandler, searchOnSubmitHandler, searchOnChangeHandler]} />
 
