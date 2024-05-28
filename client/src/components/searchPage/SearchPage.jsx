@@ -2,22 +2,19 @@ import './SearchPage.css';
 import React, { useState, useEffect } from 'react';
 import { useSearch, useSearchUpdate } from '../../contexts/SearchContext';
 import { Routes, Route, Navigate, useParams, useLocation, Link, useNavigate } from 'react-router-dom';
-import TechImg from '../shared/techImg/TechImg';
 import { appData } from '../../util/assets';
 import PageLoader from '../shared/pageLoader/PageLoader';
-import PreviewImg from '../shared/previewImg/PreviewImg';
-import { EmbeddedVideo } from '../../util/Embeds';
 import AppCard from '../appCard/AppCard';
-
-// import { search } from '../../services/showService.js';
 
 
 export default function SearchPage() {
     const [results, setResults] = useState([]);
+    const [prevSearch, setPrevSearch] = useState('');
     const [loading, setLoading] = useState(true);
     const searchValue = useSearch();
     const updateSearchValue = useSearchUpdate();
     const navigate = useNavigate();
+    const searchDelay = 300; // to simulate real fetch
 
     // useEffect(() => {
     //     console.log(searchValue);
@@ -35,19 +32,25 @@ export default function SearchPage() {
         updateSearchValue(e.target.value);
     };
 
-    async function searchOnSubmitHandler(e) {
+    function searchOnSubmitHandler(e) {
         e.preventDefault();
         if (searchValue == '') return;
 
-        await loadResults();
+        loadResults();
     };
 
-    async function loadResults() {
+    function loadResults() {
+        if (!appData) return;
         setLoading(true);
 
-        // setResults();
-        // setLoading(false);
-
+        setTimeout(() => {
+            let res = appData.filter(x => x.appName.toLowerCase().includes(searchValue.toLowerCase()));
+            console.log(res);
+            if (res.length > 0) setResults(res);
+            else setResults([]);
+            setPrevSearch(searchValue);
+            setLoading(false);
+        }, searchDelay); // forced loading delay to simulate a real fetch from API/DB
     };
 
     return (
@@ -70,11 +73,11 @@ export default function SearchPage() {
             </div>
 
             <div id="results-ctr">
-                {searchValue != '' && (results.length > 0) > 0 && (loading
+                {prevSearch != '' && (loading
                     ? (<PageLoader />)
                     : (<>
                         <div id="s-r-1" className={`cards-cage`}>
-                            {results.map(s => (<AppCard key={`${s.id}-apps`} {...s} />))}
+                            {results.map(s => (<AppCard key={`${s.id}-apps`} id={s.id} />))}
                             {results.length == 0 && (<h2>No results</h2>)}
                         </div>
                     </>)
