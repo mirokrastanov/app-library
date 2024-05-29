@@ -187,7 +187,7 @@ export const appData = [
         extDemoURL: 'https://js-websocket-chat.onrender.com/',
         intDemoURL: null,
         notes: ['DEMO: First loading takes about 30 seconds.', 'Further ones are instant. Free Hosting limitation.'],
-        imgArr: [],
+        imgArr: ['https://github.com/mirokrastanov/Software-Engineering-SoftUni/raw/main/miscellaneous/js-websocket-chat/0.png', 'https://github.com/mirokrastanov/Software-Engineering-SoftUni/raw/main/miscellaneous/js-websocket-chat/1.png', 'https://github.com/mirokrastanov/Software-Engineering-SoftUni/raw/main/miscellaneous/js-websocket-chat/3.png'],
         docsURL: 'https://github.com/mirokrastanov/JS-Websocket-Chat/blob/main/README.md',
         sourceCodeURL: 'https://github.com/mirokrastanov/JS-Websocket-Chat',
     }
